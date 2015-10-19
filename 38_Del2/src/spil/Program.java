@@ -22,6 +22,7 @@ public class Program {
 				 
 		String playerOneNameTypedInByTheUser = GUI.getUserString("Please type in the name of the Player One");
 
+		//Creating a new player object
 		Player playerOne = new Player();
 		playerOne.setPlayerName(playerOneNameTypedInByTheUser);
 		GUI.addPlayer(playerOne.getPlayerName(), 0);		
