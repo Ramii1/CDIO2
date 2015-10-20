@@ -9,7 +9,7 @@ public final class Board {
 	//This private fields can only be seen in this class.
 	private DiceCup diceCup;
 	private ResultController resultController;
-
+	//test
 
 	//This is the constructor of this Board Class
 	public Board(DiceCup diceCup, ResultController resultController)
