@@ -1,6 +1,6 @@
 package spil;
 
-// test
+//test
 
 //The class Board is marked with final,
 //because of we do not want to be a sub class
