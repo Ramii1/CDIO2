@@ -7,6 +7,7 @@ public class Player {
 	//This private fields can only be seen in this class.
 	private String playerName;
 	private int playerGameScore;
+	private PlayerAccount playerAccount;
 
 	//Setter method for setting player name.
 	public void setPlayerName(String playerName)
@@ -37,5 +38,15 @@ public class Player {
 	public int getPlayerGameScore()
 	{
 		return playerGameScore;
+	}
+	
+	public void setPlayerAccount(PlayerAccount playerAccount)
+	{
+		this.playerAccount = playerAccount; 
+	}
+	
+	public PlayerAccount getPlayerAccount()
+	{
+		return playerAccount;
 	}
 }
