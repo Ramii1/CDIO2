@@ -20,7 +20,7 @@ public final class Board {
 
 	//This is the ShakeDiceCupe method, 
 	//which calls DiceCup class and the Shake Method on that class
-	public Dice[] ShakeDiceCup()
+	public Dice[] shakeDiceCup()
 	{
 		return diceCup.Shake();
 	}
@@ -28,8 +28,8 @@ public final class Board {
 	//This is a method for calculating the sum of the dice values.
 	//In the ResultController class in the method GetSumResult 
 	//There simply pluses the two values of the dice values (example: diceOne.value).
-	public int GetCalculatedSum(Dice[] diceArray)
+	public int getCalculatedSum(Dice[] diceArray)
 	{
-		return resultController.GetSumResult(diceArray);
+		return resultController.getSumResult(diceArray);
 	}
 }

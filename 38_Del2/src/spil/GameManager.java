@@ -47,8 +47,8 @@ public class GameManager {
 				DiceCup diceCup = new DiceCup(diceOne, diceTwo);
 				ResultController resultController = new ResultController();
 				Board borad = new Board(diceCup, resultController);
-				Dice[] diceArray = borad.ShakeDiceCup();
-				int sum = borad.GetCalculatedSum(diceArray);
+				Dice[] diceArray = borad.shakeDiceCup();
+				int sum = borad.getCalculatedSum(diceArray);
 				int diceOneValue = diceArray[0].value;
 				int diceTwoValue = diceArray[1].value;
 				

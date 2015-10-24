@@ -21,7 +21,7 @@ public class TestGame
 		int countDoubleFive = 0;//Antal af ens femer
 		int countDoubleSix = 0;//Antal af ens sekser
 		
-		int sumTotalValue = 0;//Værdien af summen
+		int sumTotalValue = 0;//Vï¿½rdien af summen
 		int sumTotalDoubles = 0;
 
 		int a=0, b=0, c=0, d=0, e=0, f=0, g=0, h=0, i=0, j=0, k=0;
@@ -38,12 +38,12 @@ public class TestGame
 			DiceCup diceCup = new DiceCup(diceOne, diceTwo);
 			ResultController resultController = new ResultController();
 			Board borad = new Board(diceCup, resultController);
-			Dice[] diceArray = borad.ShakeDiceCup();
+			Dice[] diceArray = borad.shakeDiceCup();
 			int diceOneValue = diceArray[0].value;
 			int diceTwoValue = diceArray[1].value;
-			sumTotalValue += borad.GetCalculatedSum(diceArray);;
+			sumTotalValue += borad.getCalculatedSum(diceArray);;
 			
-			int x = borad.GetCalculatedSum(diceArray);;
+			int x = borad.getCalculatedSum(diceArray);;
 			
 			switch(x) {//switch case for 2 to 12
 				case 2: a++; break;
@@ -121,11 +121,11 @@ public class TestGame
 		System.out.println("Antal af dobbelt fire'er: " + countDoubleFour);
 		System.out.println("Antal af dobbelt fem'er: " + countDoubleFive);
 		System.out.println("Antal af dobbelt seks'er: " + countDoubleSix);
-		System.out.println("Antal af dobbelt slået i alt: " + countDoubleRunAll);
+		System.out.println("Antal af dobbelt slï¿½et i alt: " + countDoubleRunAll);
 		
 		System.out.println("");
 		
-		System.out.println("Sum af dobbelt værdier totalt: " + sumTotalDoubles);
+		System.out.println("Sum af dobbelt vï¿½rdier totalt: " + sumTotalDoubles);
 		System.out.println("Sum totalt: " + sumTotalValue);	
 		System.out.println("Antal kast: " + countMaxRun);
 		
