@@ -36,7 +36,7 @@ public class Program {
 		PlayerManager playerManager = new PlayerManager(playerOne, playerTwo);
 		String playerNameChoosen = playerManager.SelectPlayerRandomly();
 		
-		GUI.showMessage(playerNameChoosen + " starts: "  + "\nLet the game between " + playerOne.getPlayerName() + " and " + playerTwo.getPlayerName() + " begin.");		
+		GUI.showMessage(playerNameChoosen + " starts! "  + "\nLet the game between " + playerOne.getPlayerName() + " and " + playerTwo.getPlayerName() + " begin.");		
 		GameManager gameManager = new GameManager(playerOne, playerTwo);
 		gameManager.setCurrentPlayer(playerNameChoosen);
 
