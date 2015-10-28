@@ -2,13 +2,8 @@ package spil;
 
 public class Konto {
 	
-	private Player Player;
 	private int Saldo;
 	
-	public Konto(Player Player, int Saldo) {
-		this.Player = Player;
-		this.Saldo = Saldo;
-	}
 	
 	public void addSaldo(int beløb) {
 		this.Saldo = this.Saldo + beløb;
