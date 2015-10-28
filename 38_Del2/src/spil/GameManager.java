@@ -57,6 +57,7 @@ public class GameManager {
 				case 2:
 					GUI.showMessage("Du finder et tårn med nogle sultne vagter, som du sælger en pose æbler til for 250kr!");
 					
+					break;
 				case 3:
 				case 4:
 				case 5:
@@ -65,6 +66,7 @@ public class GameManager {
 				case 8:
 				case 9:
 				case 10:
+					
 				case 11:
 				case 12:
 				}
@@ -76,17 +78,10 @@ public class GameManager {
 				
 				GUI.setBalance(currentPlayer.getPlayerName(), currentPlayer.getPlayerGameScore());
 				
-				if(!(diceOneValue == diceTwoValue))//This check is for getting an extra throw if you got two of the same value from the two dices. 
+				if(!(sum == 10))//This check is for getting an extra throw if you got two of the same value from the two dices. 
 				{
 					changeCurrentPlayer();
-				}
-				else
-					if(currentPlayer.getPlayerGameScore() < winnerScore)
-					{
-						
-						GUI.showMessage(currentPlayer.getPlayerName() + ": You got doubles and got extra turn now.");
-					}
-					
+				}					
 
 			playerOneScore = playerOne.getPlayerGameScore();
 			playerTwoScore = playerTwo.getPlayerGameScore();

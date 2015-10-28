@@ -18,25 +18,25 @@ public class Program {
 		}
 		
 		GUI.create(fields);
-		GUI.showMessage("Welcome To Dice Playing Multiplayer\nMade by Ramyar, Mikkel, Silas, Martin and Frank - Team 38 at DTU 2015 Autumn");	
+		GUI.showMessage("Welcome to the Money Making Dice Game\nMade by Ramyar, Mikkel, Silas, Martin and Frank - Team 38 at DTU 2015 Autumn");	
 				 
-		String playerOneNameTypedInByTheUser = GUI.getUserString("Please type in the name of the Player One");
+		String playerOneNameTypedInByTheUser = GUI.getUserString("Please type in the name of player One");
 
 		//Creating a new player object
 		Player playerOne = new Player();
 		playerOne.setPlayerName(playerOneNameTypedInByTheUser);
 		GUI.addPlayer(playerOne.getPlayerName(), 0);		
 		
-		String playerTwoNameTypedInByTheUser = GUI.getUserString("Please type in the name of the Player Two");
+		String playerTwoNameTypedInByTheUser = GUI.getUserString("Please type in the name of player Two");
 		Player playerTwo = new Player();
 		playerTwo.setPlayerName(playerTwoNameTypedInByTheUser);
 		GUI.addPlayer(playerTwo.getPlayerName(), 0 );
 
-		GUI.getUserButtonPressed("Flip a coin for choosing a player", "Flip Coin");
+		GUI.getUserButtonPressed("Flip a coin to decide who starts", "Flip Coin");
 		PlayerManager playerManager = new PlayerManager(playerOne, playerTwo);
 		String playerNameChoosen = playerManager.SelectPlayerRandomly();
 		
-		GUI.showMessage("Player " + playerNameChoosen + " starts: "  + "\nLet the game betwen " + playerOne.getPlayerName() + " and " + playerTwo.getPlayerName() + " begin.");		
+		GUI.showMessage(playerNameChoosen + " starts: "  + "\nLet the game between " + playerOne.getPlayerName() + " and " + playerTwo.getPlayerName() + " begin.");		
 		GameManager gameManager = new GameManager(playerOne, playerTwo);
 		gameManager.setCurrentPlayer(playerNameChoosen);
 
