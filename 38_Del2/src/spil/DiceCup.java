@@ -28,4 +28,12 @@ public class DiceCup {
 		diceArray[1] = diceTwo;//diceTwo is a Dice and it is stored in index 1 of the array (diceArray[1])
 		return diceArray;
 	}
+	
+	public int getSumResult(Dice[] diceArray)
+	{
+		Dice diceOne = diceArray[0];
+		Dice dicetwo = diceArray[1];
+		int sum = diceOne.value + dicetwo.value; 
+		return sum;
+	}
 }

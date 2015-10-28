@@ -5,7 +5,6 @@ import java.util.Scanner;
 import spil.Board;
 import spil.Dice;
 import spil.DiceCup;
-import spil.ResultController;
 
 public class TestGame 
 {
@@ -36,14 +35,13 @@ public class TestGame
 			Dice diceOne = new Dice();
 			Dice diceTwo = new Dice();
 			DiceCup diceCup = new DiceCup(diceOne, diceTwo);
-			ResultController resultController = new ResultController();
-			Board borad = new Board(diceCup, resultController);
-			Dice[] diceArray = borad.shakeDiceCup();
+			Board board = new Board(diceCup);
+			Dice[] diceArray = board.shakeDiceCup();
 			int diceOneValue = diceArray[0].value;
 			int diceTwoValue = diceArray[1].value;
-			sumTotalValue += borad.getCalculatedSum(diceArray);;
+			sumTotalValue += board.getCalculatedSum(diceArray);;
 			
-			int x = borad.getCalculatedSum(diceArray);;
+			int x = board.getCalculatedSum(diceArray);;
 			
 			switch(x) {//switch case for 2 to 12
 				case 2: a++; break;

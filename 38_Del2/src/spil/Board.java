@@ -7,15 +7,12 @@ public final class Board {
 	//Global variables of this class,
 	//which also called fields.
 	//This private fields can only be seen in this class.
-	private DiceCup diceCup;
-	private ResultController resultController;
-	
+	private DiceCup diceCup;	
 
 	//This is the constructor of this Board Class
-	public Board(DiceCup diceCup, ResultController resultController)
+	public Board(DiceCup diceCup)
 	{
 		this.diceCup = diceCup;
-		this.resultController = resultController;
 	}
 
 	//This is the ShakeDiceCupe method, 
@@ -30,6 +27,6 @@ public final class Board {
 	//There simply pluses the two values of the dice values (example: diceOne.value).
 	public int getCalculatedSum(Dice[] diceArray)
 	{
-		return resultController.getSumResult(diceArray);
+		return diceCup.getSumResult(diceArray);
 	}
 }

@@ -45,10 +45,9 @@ public class GameManager {
 				Dice diceOne = new Dice();
 				Dice diceTwo = new Dice();
 				DiceCup diceCup = new DiceCup(diceOne, diceTwo);
-				ResultController resultController = new ResultController();
-				Board borad = new Board(diceCup, resultController);
-				Dice[] diceArray = borad.shakeDiceCup();
-				int sum = borad.getCalculatedSum(diceArray);
+				Board board = new Board(diceCup);
+				Dice[] diceArray = board.shakeDiceCup();
+				int sum = board.getCalculatedSum(diceArray);
 				int diceOneValue = diceArray[0].value;
 				int diceTwoValue = diceArray[1].value;
 				
