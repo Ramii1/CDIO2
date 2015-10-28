@@ -22,11 +22,4 @@ public final class Board {
 		return diceCup.Shake();
 	}
 
-	//This is a method for calculating the sum of the dice values.
-	//In the ResultController class in the method GetSumResult 
-	//There simply pluses the two values of the dice values (example: diceOne.value).
-	public int getCalculatedSum(Dice[] diceArray)
-	{
-		return diceCup.getSumResult(diceArray);
-	}
 }

@@ -22,7 +22,6 @@ public class Player {
 	}
 	
 	//resets the player game score value
-	//this is used for getting two dice with 1 value on each.
 	public void resetPlayerGameScoreValue()
 	{
 		this.playerGameScore = 0;

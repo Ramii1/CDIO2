@@ -7,7 +7,7 @@ public class GameManager {
 	//Global variables of this class,
 	//which also called fields.
 	//This private fields can only be seen in this class.
-	private final int winnerScore = 40;
+	private final int winnerScore = 3000;
 	private Player playerOne;
 	private Player playerTwo;
 	private Player currentPlayer;
@@ -30,9 +30,13 @@ public class GameManager {
 		String playerOneName = playerOne.getPlayerName();
 		String playerTwoName = playerTwo.getPlayerName();
 		boolean gameIsNotWon = true;
-		boolean doubleSixes = false;
 		boolean playerOneDoubleDice = false;
 		boolean playerTwoDoubleDice = false;
+		
+		Dice diceOne = new Dice();
+		Dice diceTwo = new Dice();
+		DiceCup diceCup = new DiceCup(diceOne, diceTwo);
+		Board board = new Board(diceCup);
 
 		//A while loop for looping over the players and the players throw the dices.
 		//It also contains the logic for winning and loosing of the players.
@@ -42,22 +46,29 @@ public class GameManager {
 			
 			GUI.getUserButtonPressed(currentPlayerName + " Click on Shake Dice Cup.", "Shake Dice Cup");
 			
-				Dice diceOne = new Dice();
-				Dice diceTwo = new Dice();
-				DiceCup diceCup = new DiceCup(diceOne, diceTwo);
-				Board board = new Board(diceCup);
 				Dice[] diceArray = board.shakeDiceCup();
-				int sum = board.getCalculatedSum(diceArray);
+				int sum = diceCup.getSumResult(diceArray);
 				int diceOneValue = diceArray[0].value;
 				int diceTwoValue = diceArray[1].value;
 				
 				GUI.setDice(diceOneValue, diceTwoValue);
 				
-				if(diceOneValue == 1 && diceTwoValue == 1 && currentPlayer.getPlayerGameScore() < winnerScore)//Looses all the points if the user got two 1's
-				{
-					currentPlayer.resetPlayerGameScoreValue();
+				switch(sum){
+				case 2:
+					GUI.showMessage("Du finder et tårn med nogle sultne vagter, som du sælger en pose æbler til for 250kr!");
+					
+				case 3:
+				case 4:
+				case 5:
+				case 6:
+				case 7:
+				case 8:
+				case 9:
+				case 10:
+				case 11:
+				case 12:
 				}
-				else
+				
 				if(currentPlayer.getPlayerGameScore() < winnerScore)
 				{				
 					currentPlayer.setPlayerGameScoreValue(sum);
@@ -68,7 +79,6 @@ public class GameManager {
 				if(!(diceOneValue == diceTwoValue))//This check is for getting an extra throw if you got two of the same value from the two dices. 
 				{
 					changeCurrentPlayer();
-					doubleSixes = false;
 				}
 				else
 					if(currentPlayer.getPlayerGameScore() < winnerScore)
@@ -81,13 +91,7 @@ public class GameManager {
 			playerOneScore = playerOne.getPlayerGameScore();
 			playerTwoScore = playerTwo.getPlayerGameScore();
 			gameIsNotWon = playerOneScore < winnerScore && playerTwoScore < winnerScore;
-			
-			if(gameIsNotWon)
-			{
-				gameIsNotWon = !((diceOneValue == 6 && diceTwoValue == 6) && doubleSixes);
-			}
-			
-			doubleSixes = (diceOneValue == 6 && diceTwoValue == 6);//if two times got double sixes, current player wins the game. 
+						
 			
 			if(diceOneValue == diceTwoValue && (playerOne.getPlayerGameScore() >= winnerScore || playerTwo.getPlayerGameScore() >= winnerScore))
 			{
@@ -95,24 +99,17 @@ public class GameManager {
 				{
 					playerOneDoubleDice = true;
 					gameIsNotWon = false;
-					doubleSixes = false;
 				}
 				else
 				if(playerTwo.getPlayerGameScore() >= winnerScore && currentPlayer.getPlayerName() == playerTwo.getPlayerName())
 				{
 					playerTwoDoubleDice = true;
 					gameIsNotWon = false;
-					doubleSixes = false;
 				}
 			}
 			
 			if(!gameIsNotWon)//If game is won the program passes through this check. 
 			{
-				if(doubleSixes)
-				{
-					GUI.showMessage("Congratulation " + currentPlayerName + "!!! \nYou rolled double 6 two times, and has won with " + currentPlayer.getPlayerGameScore() + " points!!!");
-					break;
-				}
 				if(playerOneScore >= winnerScore && playerOneDoubleDice)
 				{
 					GUI.showMessage(playerOneName + " has won with " + playerOneScore + " points!!! ");

@@ -39,9 +39,9 @@ public class TestGame
 			Dice[] diceArray = board.shakeDiceCup();
 			int diceOneValue = diceArray[0].value;
 			int diceTwoValue = diceArray[1].value;
-			sumTotalValue += board.getCalculatedSum(diceArray);;
+			sumTotalValue += diceCup.getSumResult(diceArray);;
 			
-			int x = board.getCalculatedSum(diceArray);;
+			int x = diceCup.getSumResult(diceArray);;
 			
 			switch(x) {//switch case for 2 to 12
 				case 2: a++; break;
