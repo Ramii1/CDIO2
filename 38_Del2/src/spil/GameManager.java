@@ -55,55 +55,51 @@ public class GameManager {
 				
 				switch(sum){
 				case 2:
-					GUI.showMessage("You find a tower with some hungry watchmen. You sell a bag of apples for 250$.");
+					GUI.showMessage(currentPlayer.getPlayerName()+" you find a tower with some hungry watchmen. You sell a bag of apples for 250$.");
 					
 					break;
 				case 3:
-					GUI.showMessage("You fell into a crater and dropped 100$.");
+					GUI.showMessage(currentPlayer.getPlayerName()+" you fell into a crater and dropped 100$.");
 					
 					break;
 				case 4:
-					GUI.showMessage("You help out a young lady at the palace gate and recieves 100$.");
+					GUI.showMessage(currentPlayer.getPlayerName()+" you help out a young lady at the palace gate and recieves 100$.");
 					
 					break;
 				case 5:
-					GUI.showMessage("You're freezing in the cold desert and buy a blanket for 20$.");
+					GUI.showMessage(currentPlayer.getPlayerName()+" you're freezing in the cold desert and buy a blanket for 20$.");
 					
 					break;
 				case 6:
-					GUI.showMessage("You find labor in the Walled City and earn 180$");
+					GUI.showMessage(currentPlayer.getPlayerName()+" you find labor in the Walled City and earn 180$");
 					
 					break;
 				case 7:
-					GUI.showMessage("You find a place to spend the night at the monestary.");
+					GUI.showMessage(currentPlayer.getPlayerName()+" you find a place to spend the night at the monestary.");
 					
 					break;
 				case 8:
-					GUI.showMessage("You find yourself in the black cave. Unfortunetly you're 80$ poorer when you find your way out.");
+					GUI.showMessage(currentPlayer.getPlayerName()+" you find yourself in the black cave. Unfortunetly you're 80$ poorer when you find your way out.");
 					
 					break;
 				case 9:
-					GUI.showMessage("You find some huts in the mountain and earn 60$ by helping them with some labor.");
+					GUI.showMessage(currentPlayer.getPlayerName()+" you find some huts in the mountain and earn 60$ by helping them with some labor.");
 					
 					break;
 				case 10:
-					GUI.showMessage("You've run into the werewall! You lose 80$ but gain another turn.");
+					GUI.showMessage(currentPlayer.getPlayerName()+" you've run into the werewall! You lose 80$ but gain another turn.");
 					
 					break;
 				case 11:
-					GUI.showMessage("You fell into the pit and lost 50$");
+					GUI.showMessage(currentPlayer.getPlayerName()+" you fell into the pit and lost 50$");
 					
 					break;
 				case 12:
-					GUI.showMessage("You've found gold in the mountains. You sell it for 650$. You're rich!");
+					GUI.showMessage(currentPlayer.getPlayerName()+" you've found gold in the mountains. You sell it for 650$. You're rich!");
 					
 					break;
 				}
 				
-				if(currentPlayer.getPlayerGameScore() < winnerScore)
-				{				
-					currentPlayer.setPlayerGameScoreValue(sum);
-				}
 				
 				GUI.setBalance(currentPlayer.getPlayerName(), currentPlayer.getPlayerGameScore());
 				
