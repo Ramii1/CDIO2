@@ -3,6 +3,12 @@ package spil;
 public class PlayerAccount {
 	
 	private int balance;
+	private Player player;
+	
+	public PlayerAccount(Player player, int balance) {
+		this.player = player;
+		this.balance = balance;
+	}
 	
 	public void addBalance(int amount) {
 		this.balance = this.balance + amount;

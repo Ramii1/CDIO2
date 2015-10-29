@@ -103,7 +103,7 @@ public class GameManager {
 				
 				GUI.setBalance(currentPlayer.getPlayerName(), currentPlayer.getPlayerGameScore());
 				
-				if(!(sum == 10))//This check is for getting an extra throw if you got two of the same value from the two dices. 
+				if(!(sum == 10))//This checks if you rolled a sum of 10. If you did, roll again. Otherwise it switches player.
 				{
 					changeCurrentPlayer();
 				}					
