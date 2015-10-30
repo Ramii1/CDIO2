@@ -58,9 +58,6 @@ public class GameManager {
 				
 				GUI.setDice(diceOneValue, diceTwoValue);
 				
-				System.out.println("Currentplayer = "+currentPlayer.getPlayerName());
-				System.out.println("Currentplayer playeraccount = "+currentPlayer.getPlayerAccount());
-				
 				switch(sum){
 				case 2:
 					currentPlayer.getPlayerAccount().addBalance(250);
