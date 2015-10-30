@@ -8,6 +8,10 @@ public class Player {
 	private String playerName;
 	private int playerGameScore;
 	private PlayerAccount playerAccount;
+	
+	public Player() {
+		playerAccount = new PlayerAccount(1000);
+	}
 
 	//Setter method for setting player name.
 	public void setPlayerName(String playerName)
@@ -39,10 +43,6 @@ public class Player {
 		return playerGameScore;
 	}
 	
-	public void setPlayerAccount(PlayerAccount playerAccount)
-	{
-		this.playerAccount = playerAccount; 
-	}
 	
 	public PlayerAccount getPlayerAccount()
 	{

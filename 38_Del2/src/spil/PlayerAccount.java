@@ -3,10 +3,8 @@ package spil;
 public class PlayerAccount {
 	
 	private int balance;
-	private Player player;
 	
-	public PlayerAccount(Player player, int balance) {
-		this.player = player;
+	public PlayerAccount(int balance) {
 		this.balance = balance;
 	}
 	
