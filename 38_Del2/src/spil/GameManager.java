@@ -118,47 +118,26 @@ public class GameManager {
 					break;
 				}
 				
-
-				
 				if(!(sum == 10))//This checks if you rolled a sum of 10. If you did, roll again. Otherwise it switches player.
 				{
 					changeCurrentPlayer();
 				}					
 
-			playerOneScore = playerOne.getPlayerGameScore();
-			playerTwoScore = playerTwo.getPlayerGameScore();
+			playerOneScore = playerOne.getPlayerAccount().getBalance();
+			playerTwoScore = playerTwo.getPlayerAccount().getBalance();
 			gameIsNotWon = playerOneScore < winnerScore && playerTwoScore < winnerScore;
 						
 			
-			if(diceOneValue == diceTwoValue && (playerOne.getPlayerGameScore() >= winnerScore || playerTwo.getPlayerGameScore() >= winnerScore))
-			{
-				if(playerOne.getPlayerGameScore() >= winnerScore && currentPlayer.getPlayerName() == playerOne.getPlayerName())
-				{
-					playerOneDoubleDice = true;
-					gameIsNotWon = false;
-				}
-				else
-				if(playerTwo.getPlayerGameScore() >= winnerScore && currentPlayer.getPlayerName() == playerTwo.getPlayerName())
-				{
-					playerTwoDoubleDice = true;
-					gameIsNotWon = false;
-				}
-			}
 			
 			if(!gameIsNotWon)//If game is won the program passes through this check. 
 			{
-				if(playerOneScore >= winnerScore && playerOneDoubleDice)
+				if(playerOneScore >= winnerScore)
 				{
-					GUI.showMessage(playerOneName + " has won with " + playerOneScore + " points!!! ");
+					GUI.showMessage(playerOne.getPlayerName() + " has won with " + playerOneScore + " points!!! ");
 				}
-				else
-				if(playerTwoScore >= winnerScore && playerTwoDoubleDice)
+				else if(playerTwoScore >= winnerScore)
 				{
-					GUI.showMessage(playerTwoName + " has won with " + playerTwoScore + " points!!! ");
-				}
-				else
-				{
-					gameIsNotWon = true;
+					GUI.showMessage(playerTwo.getPlayerName() + " has won with " + playerTwoScore + " points!!! ");
 				}
 			}			
 		}		
