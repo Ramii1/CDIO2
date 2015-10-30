@@ -55,106 +55,58 @@ public class GameManager {
 				
 				switch(sum){
 				case 2:
-<<<<<<< HEAD
 					currentPlayer.getPlayerAccount().addBalance(250);
 					GUI.setBalance(currentPlayer.getPlayerName(), currentPlayer.getPlayerAccount().getBalance());
-					GUI.showMessage(currentPlayer.getPlayerName()+" you find a tower with some hungry watchmen. You sell a bag of apples for 250$.");									
-=======
-					GUI.showMessage(currentPlayer.getPlayerName()+", you find a tower with some hungry watchmen. You sell a bag of apples for 250$.");
-					currentPlayer.getPlayerAccount().addBalance(250);					
->>>>>>> branch 'master' of https://github.com/Ramii1/CDIO2.git
+					GUI.showMessage(currentPlayer.getPlayerName()+", you find a tower with some hungry watchmen. You sell a bag of apples for 250$.");									
 					break;
 				case 3:
-<<<<<<< HEAD
-=======
-					GUI.showMessage(currentPlayer.getPlayerName()+", you fell into a crater and dropped 100$.");
->>>>>>> branch 'master' of https://github.com/Ramii1/CDIO2.git
 					currentPlayer.getPlayerAccount().subBalance(100);
 					GUI.setBalance(currentPlayer.getPlayerName(), currentPlayer.getPlayerAccount().getBalance());
 					GUI.showMessage(currentPlayer.getPlayerName()+" you fell into a crater and dropped 100$.");
 					break;
 				case 4:
-<<<<<<< HEAD
-=======
-					GUI.showMessage(currentPlayer.getPlayerName()+", you help out a young lady at the palace gate and recieves 100$.");
->>>>>>> branch 'master' of https://github.com/Ramii1/CDIO2.git
 					currentPlayer.getPlayerAccount().addBalance(100);
 					GUI.setBalance(currentPlayer.getPlayerName(), currentPlayer.getPlayerAccount().getBalance());
-					GUI.showMessage(currentPlayer.getPlayerName()+" you help out a young lady at the palace gate and recieves 100$.");
+					GUI.showMessage(currentPlayer.getPlayerName()+", you help out a young lady at the palace gate and recieves 100$.");
 					break;
 				case 5:
-<<<<<<< HEAD
-=======
-					GUI.showMessage(currentPlayer.getPlayerName()+", you're freezing in the cold desert and buy a blanket for 20$.");
->>>>>>> branch 'master' of https://github.com/Ramii1/CDIO2.git
 					currentPlayer.getPlayerAccount().subBalance(20);
 					GUI.setBalance(currentPlayer.getPlayerName(), currentPlayer.getPlayerAccount().getBalance());
-					GUI.showMessage(currentPlayer.getPlayerName()+" you're freezing in the cold desert and buy a blanket for 20$.");
+					GUI.showMessage(currentPlayer.getPlayerName()+", you're freezing in the cold desert and buy a blanket for 20$.");
 					break;
 				case 6:
-<<<<<<< HEAD
-=======
-					GUI.showMessage(currentPlayer.getPlayerName()+", you find labor in the Walled City and earn 180$");
->>>>>>> branch 'master' of https://github.com/Ramii1/CDIO2.git
 					currentPlayer.getPlayerAccount().addBalance(180);
 					GUI.setBalance(currentPlayer.getPlayerName(), currentPlayer.getPlayerAccount().getBalance());
-					GUI.showMessage(currentPlayer.getPlayerName()+" you find labor in the Walled City and earn 180$");
+					GUI.showMessage(currentPlayer.getPlayerName()+", you find labor in the Walled City and earn 180$");
 					break;
 				case 7:
-<<<<<<< HEAD
 					GUI.setBalance(currentPlayer.getPlayerName(), currentPlayer.getPlayerAccount().getBalance());
-					GUI.showMessage(currentPlayer.getPlayerName()+" you find a place to spend the night at the monestary. (Nothing happens to your money)");
-=======
 					GUI.showMessage(currentPlayer.getPlayerName()+", you find a place to spend the night at the monestary. (Nothing happens to your money)");
->>>>>>> branch 'master' of https://github.com/Ramii1/CDIO2.git
 					break;
 				case 8:
-<<<<<<< HEAD
-=======
-					GUI.showMessage(currentPlayer.getPlayerName()+", you find yourself in the black cave. Unfortunetly you're 80$ poorer when you find your way out.");
->>>>>>> branch 'master' of https://github.com/Ramii1/CDIO2.git
 					currentPlayer.getPlayerAccount().subBalance(80);
 					GUI.setBalance(currentPlayer.getPlayerName(), currentPlayer.getPlayerAccount().getBalance());
-					GUI.showMessage(currentPlayer.getPlayerName()+" you find yourself in the black cave. Unfortunetly you're 80$ poorer when you find your way out.");
+					GUI.showMessage(currentPlayer.getPlayerName()+", you find yourself in the black cave. Unfortunetly you're 80$ poorer when you find your way out.");
 					break;
 				case 9:
-<<<<<<< HEAD
-=======
-					GUI.showMessage(currentPlayer.getPlayerName()+", you find some huts in the mountain and earn 60$ by helping them with some labor.");
->>>>>>> branch 'master' of https://github.com/Ramii1/CDIO2.git
 					currentPlayer.getPlayerAccount().addBalance(60);
 					GUI.setBalance(currentPlayer.getPlayerName(), currentPlayer.getPlayerAccount().getBalance());
-					GUI.showMessage(currentPlayer.getPlayerName()+" you find some huts in the mountain and earn 60$ by helping them with some labor.");
+					GUI.showMessage(currentPlayer.getPlayerName()+", you find some huts in the mountain and earn 60$ by helping them with some labor.");
 					break;
 				case 10:
-<<<<<<< HEAD
-=======
-					GUI.showMessage(currentPlayer.getPlayerName()+", you've run into the werewall! You lose 80$ but gain another turn.");
-					System.out.println("Currentplayer = "+currentPlayer.getPlayerName());
-					System.out.println("Currentplayer playeraccount = "+currentPlayer.getPlayerAccount());
->>>>>>> branch 'master' of https://github.com/Ramii1/CDIO2.git
 					currentPlayer.getPlayerAccount().subBalance(80);
 					GUI.setBalance(currentPlayer.getPlayerName(), currentPlayer.getPlayerAccount().getBalance());
-					GUI.showMessage(currentPlayer.getPlayerName()+" you've run into the werewall! You lose 80$ but gain another turn.");
+					GUI.showMessage(currentPlayer.getPlayerName()+", you've run into the werewall! You lose 80$ but gain another turn.");
 					break;
 				case 11:
-<<<<<<< HEAD
-=======
-					GUI.showMessage(currentPlayer.getPlayerName()+", you fell into the pit and lost 50$");
->>>>>>> branch 'master' of https://github.com/Ramii1/CDIO2.git
 					currentPlayer.getPlayerAccount().subBalance(50);
 					GUI.setBalance(currentPlayer.getPlayerName(), currentPlayer.getPlayerAccount().getBalance());
-					GUI.showMessage(currentPlayer.getPlayerName()+" you fell into the pit and lost 50$");
+					GUI.showMessage(currentPlayer.getPlayerName()+", you fell into the pit and lost 50$");
 					break;
 				case 12:
-<<<<<<< HEAD
 					currentPlayer.getPlayerAccount().addBalance(650);					
 					GUI.setBalance(currentPlayer.getPlayerName(), currentPlayer.getPlayerAccount().getBalance());
-					GUI.showMessage(currentPlayer.getPlayerName()+" you've found gold in the mountains. You sell it for 650$. You're rich!");
-=======
 					GUI.showMessage(currentPlayer.getPlayerName()+", you've found gold in the mountains. You sell it for 650$. You're rich!");
-					currentPlayer.getPlayerAccount().addBalance(650);
->>>>>>> branch 'master' of https://github.com/Ramii1/CDIO2.git
 					break;
 				}
 				
