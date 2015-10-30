@@ -44,7 +44,7 @@ public class GameManager {
 		{
 			String currentPlayerName = currentPlayer.getPlayerName();
 			
-			GUI.getUserButtonPressed(currentPlayerName + " Click on Shake Dice Cup.", "Shake Dice Cup");
+			GUI.getUserButtonPressed(currentPlayerName + "'s turn.", "Shake Dice Cup");
 			
 				Dice[] diceArray = board.shakeDiceCup();
 				int sum = diceCup.getSumResult(diceArray);
@@ -58,48 +58,48 @@ public class GameManager {
 				
 				switch(sum){
 				case 2:
-					GUI.showMessage(currentPlayer.getPlayerName()+" you find a tower with some hungry watchmen. You sell a bag of apples for 250$.");
+					GUI.showMessage(currentPlayer.getPlayerName()+", you find a tower with some hungry watchmen. You sell a bag of apples for 250$.");
 					currentPlayer.getPlayerAccount().addBalance(250);					
 					break;
 				case 3:
-					GUI.showMessage(currentPlayer.getPlayerName()+" you fell into a crater and dropped 100$.");
+					GUI.showMessage(currentPlayer.getPlayerName()+", you fell into a crater and dropped 100$.");
 					currentPlayer.getPlayerAccount().subBalance(100);
 					break;
 				case 4:
-					GUI.showMessage(currentPlayer.getPlayerName()+" you help out a young lady at the palace gate and recieves 100$.");
+					GUI.showMessage(currentPlayer.getPlayerName()+", you help out a young lady at the palace gate and recieves 100$.");
 					currentPlayer.getPlayerAccount().addBalance(100);
 					break;
 				case 5:
-					GUI.showMessage(currentPlayer.getPlayerName()+" you're freezing in the cold desert and buy a blanket for 20$.");
+					GUI.showMessage(currentPlayer.getPlayerName()+", you're freezing in the cold desert and buy a blanket for 20$.");
 					currentPlayer.getPlayerAccount().subBalance(20);
 					break;
 				case 6:
-					GUI.showMessage(currentPlayer.getPlayerName()+" you find labor in the Walled City and earn 180$");
+					GUI.showMessage(currentPlayer.getPlayerName()+", you find labor in the Walled City and earn 180$");
 					currentPlayer.getPlayerAccount().addBalance(180);
 					break;
 				case 7:
-					GUI.showMessage(currentPlayer.getPlayerName()+" you find a place to spend the night at the monestary. (Nothing happens to your money)");
+					GUI.showMessage(currentPlayer.getPlayerName()+", you find a place to spend the night at the monestary. (Nothing happens to your money)");
 					break;
 				case 8:
-					GUI.showMessage(currentPlayer.getPlayerName()+" you find yourself in the black cave. Unfortunetly you're 80$ poorer when you find your way out.");
+					GUI.showMessage(currentPlayer.getPlayerName()+", you find yourself in the black cave. Unfortunetly you're 80$ poorer when you find your way out.");
 					currentPlayer.getPlayerAccount().subBalance(80);
 					break;
 				case 9:
-					GUI.showMessage(currentPlayer.getPlayerName()+" you find some huts in the mountain and earn 60$ by helping them with some labor.");
+					GUI.showMessage(currentPlayer.getPlayerName()+", you find some huts in the mountain and earn 60$ by helping them with some labor.");
 					currentPlayer.getPlayerAccount().addBalance(60);
 					break;
 				case 10:
-					GUI.showMessage(currentPlayer.getPlayerName()+" you've run into the werewall! You lose 80$ but gain another turn.");
+					GUI.showMessage(currentPlayer.getPlayerName()+", you've run into the werewall! You lose 80$ but gain another turn.");
 					System.out.println("Currentplayer = "+currentPlayer.getPlayerName());
 					System.out.println("Currentplayer playeraccount = "+currentPlayer.getPlayerAccount());
 					currentPlayer.getPlayerAccount().subBalance(80);
 					break;
 				case 11:
-					GUI.showMessage(currentPlayer.getPlayerName()+" you fell into the pit and lost 50$");
+					GUI.showMessage(currentPlayer.getPlayerName()+", you fell into the pit and lost 50$");
 					currentPlayer.getPlayerAccount().subBalance(50);
 					break;
 				case 12:
-					GUI.showMessage(currentPlayer.getPlayerName()+" you've found gold in the mountains. You sell it for 650$. You're rich!");
+					GUI.showMessage(currentPlayer.getPlayerName()+", you've found gold in the mountains. You sell it for 650$. You're rich!");
 					currentPlayer.getPlayerAccount().addBalance(650);
 					break;
 				}
