@@ -32,7 +32,7 @@ public class Program {
 		playerTwo.setPlayerName(playerTwoNameTypedInByTheUser);
 		GUI.addPlayer(playerTwo.getPlayerName(), 0 );
 
-		GUI.getUserButtonPressed("Flip a coin to decide who starts", "Flip Coin");
+		GUI.getUserButtonPressed("Flip a coin to decide who starts!", "Flip Coin");
 		PlayerManager playerManager = new PlayerManager(playerOne, playerTwo);
 		String playerNameChoosen = playerManager.SelectPlayerRandomly();
 		
