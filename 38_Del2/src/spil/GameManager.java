@@ -33,6 +33,10 @@ public class GameManager {
 		boolean playerOneDoubleDice = false;
 		boolean playerTwoDoubleDice = false;
 		
+		PlayerAccount playerAccountOne = new PlayerAccount(playerOne, 1000);
+		PlayerAccount playerAccountTwo = new PlayerAccount(playerTwo, 1000);
+		playerOne.setPlayerAccount(playerAccountTwo);
+		playerTwo.setPlayerAccount(playerAccountTwo);
 		Dice diceOne = new Dice();
 		Dice diceTwo = new Dice();
 		DiceCup diceCup = new DiceCup(diceOne, diceTwo);
@@ -56,6 +60,7 @@ public class GameManager {
 				switch(sum){
 				case 2:
 					GUI.showMessage(currentPlayer.getPlayerName()+" you find a tower with some hungry watchmen. You sell a bag of apples for 250$.");
+					currentPlayer.setPlayerGameScoreValue(250);
 					
 					break;
 				case 3:
