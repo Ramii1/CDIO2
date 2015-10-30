@@ -27,19 +27,14 @@ public class GameManager {
 	{
 		int playerOneScore = playerOne.getPlayerGameScore();
 		int playerTwoScore = playerTwo.getPlayerGameScore();
-		String playerOneName = playerOne.getPlayerName();
-		String playerTwoName = playerTwo.getPlayerName();
 		boolean gameIsNotWon = true;
-		boolean playerOneDoubleDice = false;
-		boolean playerTwoDoubleDice = false;
+
 				
 		Dice diceOne = new Dice();
 		Dice diceTwo = new Dice();
 		DiceCup diceCup = new DiceCup(diceOne, diceTwo);
 		Board board = new Board(diceCup);
-		
-		
-		
+			
 		//A while loop for looping over the players and the players throw the dices.
 		//It also contains the logic for winning and loosing of the players.
 		while(gameIsNotWon)
