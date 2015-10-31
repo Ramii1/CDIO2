@@ -12,13 +12,14 @@ public class GameManager {
 	private final int winnerScore = 3000;
 	private Player playerOne;
 	private Player playerTwo;
-	DiceCup diceCup;
+	private DiceCup diceCup;
 	private boolean cointoss;
+	private int sum;
 
 	//GameManager constructor
 	public GameManager()
 	{
-		diceCup = new DiceCup();
+		this.diceCup = new DiceCup();
 	}
 
 	//StartGameEngine method is a void method, which means 
@@ -58,7 +59,7 @@ public class GameManager {
 //			GUI.setBalance(playerOne.getPlayerName(), playerOne.getPlayerAccount().getBalance());
 //			GUI.setBalance(playerTwo.getPlayerName(), playerTwo.getPlayerAccount().getBalance());
 //			
-//			GUI.getUserButtonPressed(currentPlayerName + "'s turn.", "Shake Dice Cup");
+			
 //			
 //				Dice[] diceArray = board.shakeDiceCup();
 //				int sum = diceCup.getSumResult(diceArray);
@@ -67,62 +68,7 @@ public class GameManager {
 //				
 //				GUI.setDice(diceOneValue, diceTwoValue);
 //				
-//				switch(sum){
-//				case 2:
-//					currentPlayer.getPlayerAccount().addBalance(250);
-//					GUI.setBalance(currentPlayer.getPlayerName(), currentPlayer.getPlayerAccount().getBalance());
-//					GUI.showMessage(currentPlayer.getPlayerName()+", you find a tower with some hungry watchmen. You sell a bag of apples for 250$.");									
-//					break;
-//				case 3:
-//					currentPlayer.getPlayerAccount().subBalance(100);
-//					GUI.setBalance(currentPlayer.getPlayerName(), currentPlayer.getPlayerAccount().getBalance());
-//					GUI.showMessage(currentPlayer.getPlayerName()+" you fell into a crater and dropped 100$.");
-//					break;
-//				case 4:
-//					currentPlayer.getPlayerAccount().addBalance(100);
-//					GUI.setBalance(currentPlayer.getPlayerName(), currentPlayer.getPlayerAccount().getBalance());
-//					GUI.showMessage(currentPlayer.getPlayerName()+", you help out a young lady at the palace gate and recieves 100$.");
-//					break;
-//				case 5:
-//					currentPlayer.getPlayerAccount().subBalance(20);
-//					GUI.setBalance(currentPlayer.getPlayerName(), currentPlayer.getPlayerAccount().getBalance());
-//					GUI.showMessage(currentPlayer.getPlayerName()+", you're freezing in the cold desert and buy a blanket for 20$.");
-//					break;
-//				case 6:
-//					currentPlayer.getPlayerAccount().addBalance(180);
-//					GUI.setBalance(currentPlayer.getPlayerName(), currentPlayer.getPlayerAccount().getBalance());
-//					GUI.showMessage(currentPlayer.getPlayerName()+", you find labor in the Walled City and earn 180$");
-//					break;
-//				case 7:
-//					GUI.setBalance(currentPlayer.getPlayerName(), currentPlayer.getPlayerAccount().getBalance());
-//					GUI.showMessage(currentPlayer.getPlayerName()+", you find a place to spend the night at the monestary. (Nothing happens to your money)");
-//					break;
-//				case 8:
-//					currentPlayer.getPlayerAccount().subBalance(80);
-//					GUI.setBalance(currentPlayer.getPlayerName(), currentPlayer.getPlayerAccount().getBalance());
-//					GUI.showMessage(currentPlayer.getPlayerName()+", you find yourself in the black cave. Unfortunetly you're 80$ poorer when you find your way out.");
-//					break;
-//				case 9:
-//					currentPlayer.getPlayerAccount().addBalance(60);
-//					GUI.setBalance(currentPlayer.getPlayerName(), currentPlayer.getPlayerAccount().getBalance());
-//					GUI.showMessage(currentPlayer.getPlayerName()+", you find some huts in the mountain and earn 60$ by helping them with some labor.");
-//					break;
-//				case 10:
-//					currentPlayer.getPlayerAccount().subBalance(80);
-//					GUI.setBalance(currentPlayer.getPlayerName(), currentPlayer.getPlayerAccount().getBalance());
-//					GUI.showMessage(currentPlayer.getPlayerName()+", you've run into the werewall! You lose 80$ but gain another turn.");
-//					break;
-//				case 11:
-//					currentPlayer.getPlayerAccount().subBalance(50);
-//					GUI.setBalance(currentPlayer.getPlayerName(), currentPlayer.getPlayerAccount().getBalance());
-//					GUI.showMessage(currentPlayer.getPlayerName()+", you fell into the pit and lost 50$");
-//					break;
-//				case 12:
-//					currentPlayer.getPlayerAccount().addBalance(650);					
-//					GUI.setBalance(currentPlayer.getPlayerName(), currentPlayer.getPlayerAccount().getBalance());
-//					GUI.showMessage(currentPlayer.getPlayerName()+", you've found gold in the mountains. You sell it for 650$. You're rich!");
-//					break;
-//				}
+				
 //				
 //				if(!(sum == 10))//This checks if you rolled a sum of 10. If you did, roll again. Otherwise it switches player.
 //				{
@@ -163,19 +109,80 @@ public class GameManager {
 		GUI.addPlayer(playerTwo.getPlayerName(), 0 );
 
 		GUI.getUserButtonPressed("Flip a coin to decide who starts!", "Flip Coin");
-		PlayerManager playerManager = new PlayerManager(playerOne, playerTwo);
 		
 		Dice dice = new Dice(1,2);
 		dice.roll();
 		if (dice.getValue()==2) cointoss=true;
 		else cointoss=false;
 		
-		GUI.showMessage(playerNameChoosen + " starts! "  + "\nLet the game between " + playerOne.getPlayerName() + " and " + playerTwo.getPlayerName() + " begin.");		
+		if(cointoss==true)
+		GUI.showMessage(playerTwo.getPlayerName() + " starts! "  + "\nLet the game between " + playerOne.getPlayerName() + " and " + playerTwo.getPlayerName() + " begin.");		
 		
 	}
 
 	private boolean playerTurn(Player player) {
-		player.getPlayerAccount().setBalance(amount);
+		
+		GUI.getUserButtonPressed(player.getPlayerName() + "'s turn.", "Shake Dice Cup");
+		diceCup.shake();
+		sum = diceCup.getSumResult();
+		
+		switch(sum){
+		case 2:
+			player.getPlayerAccount().addBalance(250);
+			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
+			GUI.showMessage(player.getPlayerName()+", you find a tower with some hungry watchmen. You sell a bag of apples for 250$.");									
+			break;
+		case 3:
+			player.getPlayerAccount().subBalance(100);
+			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
+			GUI.showMessage(player.getPlayerName()+" you fell into a crater and dropped 100$.");
+			break;
+		case 4:
+			player.getPlayerAccount().addBalance(100);
+			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
+			GUI.showMessage(player.getPlayerName()+", you help out a young lady at the palace gate and recieves 100$.");
+			break;
+		case 5:
+			player.getPlayerAccount().subBalance(20);
+			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
+			GUI.showMessage(player.getPlayerName()+", you're freezing in the cold desert and buy a blanket for 20$.");
+			break;
+		case 6:
+			player.getPlayerAccount().addBalance(180);
+			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
+			GUI.showMessage(player.getPlayerName()+", you find labor in the Walled City and earn 180$");
+			break;
+		case 7:
+			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
+			GUI.showMessage(player.getPlayerName()+", you find a place to spend the night at the monestary. (Nothing happens to your money)");
+			break;
+		case 8:
+			player.getPlayerAccount().subBalance(70);
+			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
+			GUI.showMessage(player.getPlayerName()+", you find yourself in the black cave. Unfortunetly you're 70$ poorer when you find your way out.");
+			break;
+		case 9:
+			player.getPlayerAccount().addBalance(60);
+			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
+			GUI.showMessage(player.getPlayerName()+", you find some huts in the mountain and earn 60$ by helping them with some labor.");
+			break;
+		case 10:
+			player.getPlayerAccount().subBalance(80);
+			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
+			GUI.showMessage(player.getPlayerName()+", you've run into the werewall! You lose 80$ but gain another turn.");
+			break;
+		case 11:
+			player.getPlayerAccount().subBalance(50);
+			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
+			GUI.showMessage(player.getPlayerName()+", you fell into the pit and lost 50$");
+			break;
+		case 12:
+			player.getPlayerAccount().addBalance(650);					
+			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
+			GUI.showMessage(player.getPlayerName()+", you've found gold in the mountains. You sell it for 650$. You're rich!");
+			break;
+		}
+		
 		if (player.getPlayerAccount().getBalance()>=3000){
 			return false;
 		}
