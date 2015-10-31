@@ -19,7 +19,7 @@ public class DiceCup {
 	//This Shake method is used for randomly choose
 	//a random number between the numbers of the dice.
 	//Shake method returns a Dice[] => which is a Dice array.
-	public void Shake()
+	public void shake()
 	{
 		diceOne.roll();
 		diceTwo.roll();
