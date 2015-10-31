@@ -10,30 +10,24 @@ public class DiceCup {
 
 	//DiceCup class constructor
 	//which takes two class of Dice
-	public DiceCup(Dice diceOne, Dice diceTwo) 
+	public DiceCup() 
 	{
-		this.diceOne = diceOne;
-		this.diceTwo = diceTwo;
+		this.diceOne = new Dice();
+		this.diceTwo = new Dice();
 	}
 
 	//This Shake method is used for randomly choose
 	//a random number between the numbers of the dice.
 	//Shake method returns a Dice[] => which is a Dice array.
-	public Dice[] Shake()
+	public void Shake()
 	{
-		Dice[] diceArray = new Dice[2];//It creating a Dice fixed array with to index's
-		diceOne.value =(int)(Math.random()* diceOne.maxValue + diceOne.minValue);
-		diceTwo.value =(int)(Math.random()* diceTwo.maxValue + diceTwo.minValue);
-		diceArray[0] = diceOne;//diceOne is a Dice and it is stored in index 0 of the array (diceArray[0])
-		diceArray[1] = diceTwo;//diceTwo is a Dice and it is stored in index 1 of the array (diceArray[1])
-		return diceArray;
+		diceOne.roll();
+		diceTwo.roll();
 	}
 	
-	public int getSumResult(Dice[] diceArray)
+	public int getSumResult()
 	{
-		Dice diceOne = diceArray[0];
-		Dice dicetwo = diceArray[1];
-		int sum = diceOne.value + dicetwo.value; 
+		int sum = diceOne.getValue()+ diceTwo.getValue(); 
 		return sum;
 	}
 }

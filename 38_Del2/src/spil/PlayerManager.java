@@ -13,26 +13,27 @@ public class PlayerManager
 		this.playerTwo = playerTwo;
 	}
 	
+	
 	//In this SelectPlayerRandomly method
 	//we use this one as a flip coin.
-	public String SelectPlayerRandomly()
-	{
-		Dice diceOneForPlayerOne = new Dice();
-		Dice diceTwoForPlayerTwo = new Dice();
-		DiceCup diceCup = new DiceCup(diceOneForPlayerOne, diceTwoForPlayerTwo);
-		Dice[] diceArray = diceCup.Shake();
-		diceOneForPlayerOne = diceArray[0];
-		diceTwoForPlayerTwo = diceArray[1];
-		
-		if(diceOneForPlayerOne.value > diceTwoForPlayerTwo.value)
-		{
-			String playerOneChoosen = playerOne.getPlayerName();
-			return playerOneChoosen;
-		}
-		else
-		{
-			String playerTwoChoosen = playerTwo.getPlayerName();
-			return playerTwoChoosen;
-		}
-	}
+//	public String SelectPlayerRandomly()
+//	{
+//		Dice diceOneForPlayerOne = new Dice();
+//		Dice diceTwoForPlayerTwo = new Dice();
+//		DiceCup diceCup = new DiceCup(diceOneForPlayerOne, diceTwoForPlayerTwo);
+//		Dice[] diceArray = diceCup.Shake();
+//		diceOneForPlayerOne = diceArray[0];
+//		diceTwoForPlayerTwo = diceArray[1];
+//		
+//		if(diceOneForPlayerOne.getValue > diceTwoForPlayerTwo.value)
+//		{
+//			String playerOneChoosen = playerOne.getPlayerName();
+//			return playerOneChoosen;
+//		}
+//		else
+//		{
+//			String playerTwoChoosen = playerTwo.getPlayerName();
+//			return playerTwoChoosen;
+//		}
+//	}
 }
