@@ -4,9 +4,9 @@ public class Dice
 {
 	//Global variables which also called fields
 	//These are public in order to access them and use them.
-	private int value;
-	private int maxValue = 6;//Final keyword is used here, because we don't want to change this value.
-	private int minValue = 1;//Final keyword is used here, because we don't want to change this value.
+	private int value; //Used to keep track of the dice value.
+	private int maxValue = 6;//The maximum the dice may be able to roll.
+	private int minValue = 1;//The minimum the dice may be able to roll.
 	
 	public Dice(){
 		this.maxValue=6;
