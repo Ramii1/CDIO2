@@ -1,29 +1,35 @@
 package spil;
 
-public class PlayerAccount {
-	
+public class PlayerAccount 
+{
+
 	private int balance;
-	
-	public PlayerAccount(int balance) {
+
+	public PlayerAccount(int balance) 
+	{
 		this.balance = balance;
 	}
-	
-	public void addBalance(int amount) {
+
+	public void addBalance(int amount) 
+	{
 		this.balance = this.balance + amount;
 	}
-	
-	public void subBalance(int amount) {
+
+	public void subBalance(int amount) 
+	{
 		if((this.balance - amount)<0)
 			this.balance = 0;
 		else
 			this.balance = this.balance - amount;
 	}
-	
-	public void setBalance(int amount) {
+
+	public void setBalance(int amount) 
+	{
 		this.balance = amount;
 	}
-	
-	public int getBalance() {
+
+	public int getBalance() 
+	{
 		return this.balance;
 	}
 

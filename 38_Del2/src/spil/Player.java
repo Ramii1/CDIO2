@@ -1,6 +1,7 @@
 package spil;
 
-public class Player {
+public class Player 
+{
 
 	//Global variables of this class,
 	//which also called fields.
@@ -8,8 +9,9 @@ public class Player {
 	private String playerName;
 	private int playerGameScore;
 	private PlayerAccount playerAccount;
-	
-	public Player() {
+
+	public Player() 
+	{
 		playerAccount = new PlayerAccount(1000);
 	}
 
@@ -24,7 +26,7 @@ public class Player {
 	{
 		this.playerGameScore = this.playerGameScore + playerGameScoreValue;
 	}
-	
+
 	//resets the player game score value
 	public void resetPlayerGameScoreValue()
 	{
@@ -42,8 +44,8 @@ public class Player {
 	{
 		return playerGameScore;
 	}
-	
-	
+
+
 	public PlayerAccount getPlayerAccount()
 	{
 		return playerAccount;

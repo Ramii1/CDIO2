@@ -4,7 +4,8 @@ import desktop_fields.Empty;
 import desktop_fields.Field;
 import desktop_resources.GUI;
 
-public class GameManager {
+public class GameManager 
+{
 
 	//Global variables of this class,
 	//which also called fields.
@@ -22,6 +23,24 @@ public class GameManager {
 		this.diceCup = new DiceCup();
 	}
 
+	//Starting game handling and Rematch Handeling
+	public void manageGame()
+	{
+		boolean wantRematch = true;
+
+		while(wantRematch)
+		{
+			StartGameEngine();
+			String userInput = GUI.getUserButtonPressed("Do you want rematch?", "Yes", "No");
+			if(userInput == "No")
+			{
+				wantRematch = false;
+			}
+			GUI.close();//Closing the GUI => Graphical User Interface
+		}
+		System.exit(0);//Terminates the currently running Java Virtual Machine - 0 means just to parse something into exit method.
+	}
+
 	//StartGameEngine method is a void method, which means 
 	//it does not return any value.
 	//StartGameEngine is the brain of this game-program
@@ -30,79 +49,71 @@ public class GameManager {
 		initGUI();
 		initPlayers();
 		boolean gameIsNotWon = true;
-		
-		
-		while (gameIsNotWon){
-			if (cointoss){
+
+
+		while (gameIsNotWon)
+		{
+			if (cointoss)
+			{
 				gameIsNotWon = playerTurn(playerTwo);
-//				winTest();
+				//				winTest();
 				gameIsNotWon = playerTurn(playerOne);
-				
-			} else {
+
+			} 
+			else 
+			{
 				gameIsNotWon = playerTurn(playerOne);
-//				winTest();
+				//				winTest();
 				gameIsNotWon = playerTurn(playerTwo);
 			}
 		}
 		showWinnerScreen();
-		//Show winner screen?? Rematch??
-				
-		
 	}
 
-	
 
-//	private void winTest() {
-//		if(playerOne.getPlayerAccount().getBalance() >= winnerScore)
-//			
-//		else if(playerTwo.getPlayerAccount().getBalance() >= winnerScore)
-//			GUI.showMessage(playerTwo.getPlayerName()+" won!");
-//		
-//	}
-
-	private void showWinnerScreen() {
+	private void showWinnerScreen() 
+	{
 		if(playerOne.getPlayerAccount().getBalance() >= winnerScore)
 			GUI.showMessage(playerOne.getPlayerName()+" won the game with "+playerOne.getPlayerAccount().getBalance()+" point!!");
 		else if(playerTwo.getPlayerAccount().getBalance() >= winnerScore)
 			GUI.showMessage(playerTwo.getPlayerName()+" won the game with "+playerTwo.getPlayerAccount().getBalance()+" point!!");
-		
 	}
 
-	private void initPlayers() {
+	private void initPlayers() 
+	{
 		String playerOneNameTypedInByTheUser = GUI.getUserString("Please type in the name of player One");
 
 		//Creating a new player object
 		playerOne = new Player();
 		playerOne.setPlayerName(playerOneNameTypedInByTheUser);
 		GUI.addPlayer(playerOne.getPlayerName(), 1000);		
-		
+
 		String playerTwoNameTypedInByTheUser = GUI.getUserString("Please type in the name of player Two");
 		playerTwo = new Player();
 		playerTwo.setPlayerName(playerTwoNameTypedInByTheUser);
 		GUI.addPlayer(playerTwo.getPlayerName(), 1000);
 
 		GUI.getUserButtonPressed("Flip a coin to decide who starts!", "Flip Coin");
-		
-		Dice dice = new Dice(1,2);
+
+		Dice 	dice = new Dice(1,2);
 		dice.roll();
 		if (dice.getValue()==2) cointoss=true;
 		else cointoss=false;
-		
+
 		if(cointoss==true)
-		GUI.showMessage(playerTwo.getPlayerName() + " starts! "  + "\nLet the game between " + playerOne.getPlayerName() + " and " + playerTwo.getPlayerName() + " begin.");		
-		
+			GUI.showMessage(playerTwo.getPlayerName() + " starts! "  + "\nLet the game between " + playerOne.getPlayerName() + " and " + playerTwo.getPlayerName() + " begin.");		
+
 	}
 
-	private boolean playerTurn(Player player) {
-		
-		
-		
+	private boolean playerTurn(Player player) 
+	{
 		GUI.getUserButtonPressed(player.getPlayerName() + "'s turn.", "Shake Dice Cup");
 		diceCup.shake();
 		GUI.setDice(diceCup.getDiceOne(), diceCup.getDiceTwo());
 		sum = diceCup.getSumResult();
-		
-		switch(sum){
+
+		switch(sum)
+		{
 		case 2:
 			player.getPlayerAccount().addBalance(250);
 			GUI.setBalance(player.getPlayerName(), player.getPlayerAccount().getBalance());
@@ -158,26 +169,28 @@ public class GameManager {
 			GUI.showMessage(player.getPlayerName()+", you've found gold in the mountains. You sell it for 650$. You're rich!");
 			break;
 		}
-		
-		if (player.getPlayerAccount().getBalance()>=3000){
+
+		if (player.getPlayerAccount().getBalance()>=3000)
+		{
 			return false;
 		}
 		return true;
-		
+
 	}
 
-	private void initGUI() {
+	private void initGUI() 
+	{
 		//Creating fields for emptying them on the GUI.
-				Field[] fields = new Field[40];
-				for(int i=0; i < fields.length ; i++)
-				{
-					Field emptyField = new Empty.Builder().build();
-					fields[i] = emptyField;
-				}
-				
-				GUI.create(fields);
-				GUI.showMessage("Welcome to the Money Making Dice Game\nMade by Ramyar, Mikkel, Silas, Martin and Frank - Team 38 at DTU 2015 Autumn");	
-						 		
+		Field[] fields = new Field[40];
+		for(int i=0; i < fields.length ; i++)
+		{
+			Field emptyField = new Empty.Builder().build();
+			fields[i] = emptyField;
+		}
+
+		GUI.create(fields);
+		GUI.showMessage("Welcome to the Money Making Dice Game\nMade by Ramyar, Mikkel, Silas, Martin and Frank - Team 38 at DTU 2015 Autumn");	
+
 	}
 
 	//Simply returns winner score
@@ -185,6 +198,5 @@ public class GameManager {
 	{
 		return winnerScore;
 	}
-
 
 }
