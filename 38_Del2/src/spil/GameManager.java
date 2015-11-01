@@ -29,8 +29,6 @@ public class GameManager {
 	{
 		initGUI();
 		initPlayers();
-		int playerOneScore = playerOne.getPlayerGameScore();
-		int playerTwoScore = playerTwo.getPlayerGameScore();
 		boolean gameIsNotWon = true;
 		
 		
