@@ -48,51 +48,7 @@ public class GameManager {
 		
 	}
 
-			
-		//A while loop for looping over the players and the players throw the dices.
-		//It also contains the logic for winning and loosing of the players.
-//		while(gameIsNotWon)
-//		{
-//			String currentPlayerName = currentPlayer.getPlayerName();
-//			
-//			
-//			GUI.setBalance(playerTwo.getPlayerName(), playerTwo.getPlayerAccount().getBalance());
-//			
-			
-//			
-//				Dice[] diceArray = board.shakeDiceCup();
-//				int sum = diceCup.getSumResult(diceArray);
-//				int diceOneValue = diceArray[0].value;
-//				int diceTwoValue = diceArray[1].value;
-//				
-//				GUI.setDice(diceOneValue, diceTwoValue);
-//				
-				
-//				
-//				if(!(sum == 10))//This checks if you rolled a sum of 10. If you did, roll again. Otherwise it switches player.
-//				{
-//					changeCurrentPlayer();
-//				}					
-//
-//			playerOneScore = playerOne.getPlayerAccount().getBalance();
-//			playerTwoScore = playerTwo.getPlayerAccount().getBalance();
-//			gameIsNotWon = playerOneScore < winnerScore && playerTwoScore < winnerScore;
-//						
-//			
-//			
-//			if(!gameIsNotWon)//If game is won the program passes through this check. 
-//			{
-//				if(playerOneScore >= winnerScore)
-//				{
-//					GUI.showMessage(playerOne.getPlayerName() + " has won with " + playerOneScore + " points!!! ");
-//				}
-//				else if(playerTwoScore >= winnerScore)
-//				{
-//					GUI.showMessage(playerTwo.getPlayerName() + " has won with " + playerTwoScore + " points!!! ");
-//				}
-//			}			
-//		}		
-//	}
+	
 
 	private void showWinnerScreen() {
 		if(playerOne.getPlayerAccount().getBalance() >= winnerScore)
@@ -133,6 +89,7 @@ public class GameManager {
 		
 		GUI.getUserButtonPressed(player.getPlayerName() + "'s turn.", "Shake Dice Cup");
 		diceCup.shake();
+//		GUI.setDice();
 		sum = diceCup.getSumResult();
 		
 		switch(sum){
