@@ -3,7 +3,8 @@ package spil;
 import desktop_fields.Empty;
 import desktop_fields.Field;
 import desktop_resources.GUI;
-
+import desktop_codebehind.Car;
+import java.awt.Color;
 public class GameManager 
 {
 
@@ -23,7 +24,7 @@ public class GameManager
 		this.diceCup = new DiceCup();
 	}
 
-	//Starting game handling and Rematch Handeling
+	//Starting game handling and Rematch Handling
 	public void manageGame()
 	{
 		boolean wantRematch = true;
@@ -36,6 +37,8 @@ public class GameManager
 			{
 				wantRematch = false;
 			}
+//			GUI.removeAllCars("A");
+//			GUI.removeAllCars("b");
 			GUI.close();//Closing the GUI => Graphical User Interface
 		}
 		System.exit(0);//Terminates the currently running Java Virtual Machine - 0 means just to parse something into exit method.
@@ -52,19 +55,17 @@ public class GameManager
 
 
 		while (gameIsNotWon)
-		{
+		{			
 			if (cointoss)
 			{
-				gameIsNotWon = playerTurn(playerTwo);
-				//				winTest();
-				gameIsNotWon = playerTurn(playerOne);
+				if(gameIsNotWon) gameIsNotWon = playerTurn(playerTwo);				
+				if(gameIsNotWon) gameIsNotWon = playerTurn(playerOne);
 
 			} 
 			else 
 			{
-				gameIsNotWon = playerTurn(playerOne);
-				//				winTest();
-				gameIsNotWon = playerTurn(playerTwo);
+				if(gameIsNotWon) gameIsNotWon = playerTurn(playerOne);
+				if(gameIsNotWon) gameIsNotWon = playerTurn(playerTwo);
 			}
 		}
 		showWinnerScreen();
@@ -86,12 +87,24 @@ public class GameManager
 		//Creating a new player object
 		playerOne = new Player();
 		playerOne.setPlayerName(playerOneNameTypedInByTheUser);
-		GUI.addPlayer(playerOne.getPlayerName(), 1000);		
+		Car car1 = new Car.Builder()
+				.typeTractor()
+				.patternHorizontalDualColor()
+				.primaryColor(Color.RED)
+				.secondaryColor(Color.BLUE)
+				.build();
+		GUI.addPlayer(playerOne.getPlayerName(), 1000,car1);		
 
 		String playerTwoNameTypedInByTheUser = GUI.getUserString("Please type in the name of player Two");
 		playerTwo = new Player();
 		playerTwo.setPlayerName(playerTwoNameTypedInByTheUser);
-		GUI.addPlayer(playerTwo.getPlayerName(), 1000);
+		Car car2 = new Car.Builder()
+				.typeTractor()
+				.patternHorizontalDualColor()
+				.primaryColor(Color.BLUE)
+				.secondaryColor(Color.RED)
+				.build();
+		GUI.addPlayer(playerTwo.getPlayerName(), 1000,car2);
 
 		GUI.getUserButtonPressed("Flip a coin to decide who starts!", "Flip Coin");
 
@@ -170,7 +183,7 @@ public class GameManager
 			break;
 		}
 
-		if (player.getPlayerAccount().getBalance()>=3000)
+		if (player.getPlayerAccount().getBalance() >= winnerScore)
 		{
 			return false;
 		}
