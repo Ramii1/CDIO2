@@ -44,6 +44,7 @@ public class GameManager {
 				gameIsNotWon = playerTurn(playerTwo);
 			}
 		}
+		showWinnerScreen();
 		//Show winner screen?? Rematch??
 				
 		
@@ -56,7 +57,7 @@ public class GameManager {
 //		{
 //			String currentPlayerName = currentPlayer.getPlayerName();
 //			
-//			GUI.setBalance(playerOne.getPlayerName(), playerOne.getPlayerAccount().getBalance());
+//			
 //			GUI.setBalance(playerTwo.getPlayerName(), playerTwo.getPlayerAccount().getBalance());
 //			
 			
@@ -95,18 +96,26 @@ public class GameManager {
 //		}		
 //	}
 
+	private void showWinnerScreen() {
+		if(playerOne.getPlayerAccount().getBalance() >= winnerScore)
+			GUI.showMessage(playerOne.getPlayerName()+" won!");
+		else if(playerTwo.getPlayerAccount().getBalance() >= winnerScore)
+			GUI.showMessage(playerTwo.getPlayerName()+" won!");
+		
+	}
+
 	private void initPlayers() {
 		String playerOneNameTypedInByTheUser = GUI.getUserString("Please type in the name of player One");
 
 		//Creating a new player object
 		playerOne = new Player();
 		playerOne.setPlayerName(playerOneNameTypedInByTheUser);
-		GUI.addPlayer(playerOne.getPlayerName(), 0);		
+		GUI.addPlayer(playerOne.getPlayerName(), 1000);		
 		
 		String playerTwoNameTypedInByTheUser = GUI.getUserString("Please type in the name of player Two");
 		playerTwo = new Player();
 		playerTwo.setPlayerName(playerTwoNameTypedInByTheUser);
-		GUI.addPlayer(playerTwo.getPlayerName(), 0 );
+		GUI.addPlayer(playerTwo.getPlayerName(), 1000);
 
 		GUI.getUserButtonPressed("Flip a coin to decide who starts!", "Flip Coin");
 		
@@ -121,6 +130,8 @@ public class GameManager {
 	}
 
 	private boolean playerTurn(Player player) {
+		
+		
 		
 		GUI.getUserButtonPressed(player.getPlayerName() + "'s turn.", "Shake Dice Cup");
 		diceCup.shake();
