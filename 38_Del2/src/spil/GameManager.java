@@ -35,10 +35,12 @@ public class GameManager {
 		while (gameIsNotWon){
 			if (cointoss){
 				gameIsNotWon = playerTurn(playerTwo);
+//				winTest();
 				gameIsNotWon = playerTurn(playerOne);
 				
 			} else {
 				gameIsNotWon = playerTurn(playerOne);
+//				winTest();
 				gameIsNotWon = playerTurn(playerTwo);
 			}
 		}
@@ -50,11 +52,19 @@ public class GameManager {
 
 	
 
+//	private void winTest() {
+//		if(playerOne.getPlayerAccount().getBalance() >= winnerScore)
+//			
+//		else if(playerTwo.getPlayerAccount().getBalance() >= winnerScore)
+//			GUI.showMessage(playerTwo.getPlayerName()+" won!");
+//		
+//	}
+
 	private void showWinnerScreen() {
 		if(playerOne.getPlayerAccount().getBalance() >= winnerScore)
-			GUI.showMessage(playerOne.getPlayerName()+" won!");
+			GUI.showMessage(playerOne.getPlayerName()+" won the game with "+playerOne.getPlayerAccount().getBalance()+" point!!");
 		else if(playerTwo.getPlayerAccount().getBalance() >= winnerScore)
-			GUI.showMessage(playerTwo.getPlayerName()+" won!");
+			GUI.showMessage(playerTwo.getPlayerName()+" won the game with "+playerTwo.getPlayerAccount().getBalance()+" point!!");
 		
 	}
 
@@ -89,7 +99,7 @@ public class GameManager {
 		
 		GUI.getUserButtonPressed(player.getPlayerName() + "'s turn.", "Shake Dice Cup");
 		diceCup.shake();
-//		GUI.setDice();
+		GUI.setDice(diceCup.getDiceOne(), diceCup.getDiceTwo());
 		sum = diceCup.getSumResult();
 		
 		switch(sum){
