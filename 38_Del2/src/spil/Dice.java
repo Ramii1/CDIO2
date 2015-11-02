@@ -17,7 +17,6 @@ public class Dice
 
 	public Dice(int maxValue, int minValue) 
 	{
-		//super();
 		this.maxValue = maxValue;
 		this.minValue = minValue;
 	}
