@@ -120,6 +120,7 @@ public class GameManager
 
 	private boolean playerTurn(Player player) 
 	{
+		do {
 		GUI.getUserButtonPressed(player.getPlayerName() + "'s turn.", "Shake Dice Cup");
 		diceCup.shake();
 		GUI.setDice(diceCup.getDiceOne(), diceCup.getDiceTwo());
@@ -188,7 +189,7 @@ public class GameManager
 			return false;
 		}
 		return true;
-
+		} while(sum == 10);
 	}
 
 	private void initGUI() 
