@@ -32,7 +32,7 @@ public class GameManager
 		while(wantRematch)
 		{
 			StartGameEngine();
-			String userInput = GUI.getUserButtonPressed("Do you want rematch?", "Yes", "No");
+			String userInput = GUI.getUserButtonPressed("Do you want a rematch?", "Yes", "No");
 			if(userInput == "No")
 			{
 				wantRematch = false;
