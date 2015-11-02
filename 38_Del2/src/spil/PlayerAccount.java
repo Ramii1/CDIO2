@@ -7,7 +7,10 @@ public class PlayerAccount
 
 	public PlayerAccount(int balance) 
 	{
-		this.balance = balance;
+		if(balance < 0)
+			this.balance = 0;
+		else
+			this.balance = balance;
 	}
 
 	public void addBalance(int amount) 
@@ -25,7 +28,10 @@ public class PlayerAccount
 
 	public void setBalance(int amount) 
 	{
-		this.balance = amount;
+		if(amount < 0)
+			this.balance = 0;
+		else
+			this.balance = amount;
 	}
 
 	public int getBalance() 
