@@ -37,8 +37,7 @@ public class GameManager
 			{
 				wantRematch = false;
 			}
-//			GUI.removeAllCars("A");
-//			GUI.removeAllCars("b");
+			
 			GUI.close();//Closing the GUI => Graphical User Interface
 		}
 		System.exit(0);//Terminates the currently running Java Virtual Machine - 0 means just to parse something into exit method.
