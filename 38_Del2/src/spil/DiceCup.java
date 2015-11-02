@@ -1,6 +1,7 @@
 package spil;
 
-public class DiceCup {
+public class DiceCup 
+{
 
 	//Global variables of this class,
 	//which also called fields.
@@ -24,10 +25,20 @@ public class DiceCup {
 		diceOne.roll();
 		diceTwo.roll();
 	}
-	
+
 	public int getSumResult()
 	{
 		int sum = diceOne.getValue()+ diceTwo.getValue(); 
 		return sum;
+	}
+
+	public int getDiceOne() 
+	{
+		return diceOne.getValue();
+	}
+
+	public int getDiceTwo() 
+	{
+		return diceTwo.getValue();
 	}
 }
