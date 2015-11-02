@@ -108,14 +108,15 @@ public class GameManager
 
 		GUI.getUserButtonPressed("Flip a coin to decide who starts!", "Flip Coin");
 
-		Dice 	dice = new Dice(1,2);
+		Dice dice = new Dice(2,1);
 		dice.roll();
 		if (dice.getValue()==2) cointoss=true;
 		else cointoss=false;
 
 		if(cointoss==true)
 			GUI.showMessage(playerTwo.getPlayerName() + " starts! "  + "\nLet the game between " + playerOne.getPlayerName() + " and " + playerTwo.getPlayerName() + " begin.");		
-
+		else
+			GUI.showMessage(playerOne.getPlayerName() + " starts! " + "\nLet the game between " + playerOne.getPlayerName() + " and " + playerTwo.getPlayerName() + " begin.");
 	}
 
 	private boolean playerTurn(Player player) 
