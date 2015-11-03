@@ -31,7 +31,7 @@ public class GameManager
 
 		while(wantRematch)
 		{
-			StartGameEngine();
+			startGameEngine();
 			String userInput = GUI.getUserButtonPressed("Do you want a rematch?", "Yes", "No");
 			if(userInput == "No")
 			{
@@ -46,7 +46,7 @@ public class GameManager
 	//StartGameEngine method is a void method, which means 
 	//it does not return any value.
 	//StartGameEngine is the brain of this game-program
-	public void StartGameEngine()
+	public void startGameEngine()
 	{
 		initGUI();
 		initPlayers();
@@ -206,11 +206,4 @@ public class GameManager
 		GUI.showMessage("Welcome to the Money Making Dice Game\nMade by Ramyar, Mikkel, Silas, Martin and Frank - Team 38 at DTU 2015 Autumn");	
 
 	}
-
-	//Simply returns winner score
-	public int getWinnerScore()
-	{
-		return winnerScore;
-	}
-
 }
