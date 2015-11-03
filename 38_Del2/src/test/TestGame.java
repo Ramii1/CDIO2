@@ -10,6 +10,9 @@ import spil.Player;
 
 public class TestGame {
 
+	// Testscript der tester om playerAccount kan gå i minus.
+	
+	
 	Player p;
 			
 	@Before
