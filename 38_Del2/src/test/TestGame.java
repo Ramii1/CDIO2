@@ -15,7 +15,7 @@ public class TestGame {
 	
 	Player p;
 			
-	@Before
+	@Before		// Preconditions
 	public void setUp() throws Exception {
 		p = new Player();
 		p.getPlayerAccount().setBalance(0);		assertEquals(0, p.getPlayerAccount().getBalance());
@@ -37,7 +37,7 @@ public class TestGame {
 	
 	
 	
-	@After
+	@After		//Postconditions
 	public void tearDown() throws Exception {
 		assertEquals(0, p.getPlayerAccount().getBalance());
 	}
